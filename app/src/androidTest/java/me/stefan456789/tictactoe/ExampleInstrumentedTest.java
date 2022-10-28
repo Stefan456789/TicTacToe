@@ -1,4 +1,4 @@
-package me.stefan.tictactoe;
+package me.stefan456789.tictactoe;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("me.stefan.tictactoe", appContext.getPackageName());
+        assertEquals("me.stefan456789.tictactoe", appContext.getPackageName());
     }
 }

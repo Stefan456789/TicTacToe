@@ -1,4 +1,4 @@
-package me.stefan.tictactoe;
+package me.stefan456789.tictactoe;
 
 public class Game {
     private char player = 'X';
