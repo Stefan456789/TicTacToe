@@ -7,6 +7,7 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+
     <TableLayout
         android:id="@+id/TableLayout"
         android:layout_width="match_parent"
@@ -20,15 +21,13 @@
             <TextView
                 android:id="@+id/FieldsLeft"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello World!" />
+                android:layout_height="wrap_content" />
 
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="TextView" />
+                android:layout_weight="1" />
         </TableRow>
 
         <TableRow
@@ -38,27 +37,36 @@
 
             <Button
                 android:id="@+id/topleft"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/top"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/topright"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
         </TableRow>
 
@@ -69,27 +77,36 @@
 
             <Button
                 android:id="@+id/left"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/middle"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/right"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
         </TableRow>
 
@@ -100,27 +117,36 @@
 
             <Button
                 android:id="@+id/leftbottom"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/bottom"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
             <Button
                 android:id="@+id/rightbottom"
+                style="@style/Widget.AppCompat.Button"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:insetBottom="0dp"
-                android:text="" />
+                android:text=""
+                android:textSize="48dip"
+                app:backgroundTint="@color/red" />
 
         </TableRow>
 

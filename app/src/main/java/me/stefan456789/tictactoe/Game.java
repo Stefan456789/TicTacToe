@@ -1,5 +1,11 @@
 package me.stefan456789.tictactoe;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
+import java.util.Arrays;
+
 public class Game {
     private char player = 'X';
     private final GetIntArray field;
@@ -17,6 +23,7 @@ public class Game {
         return player;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void resume() {
         if (player == 'X'){
             player = 'O';
@@ -42,84 +49,64 @@ public class Game {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     private static int winner(int[][] gameboard){
+
         //Horizontal Win
-        if(gameboard[0][0] == 1&& gameboard[0][2] == 1 /*&& gameboard [0][4] == 1 */){
-            System.out.println("Player Wins");
+        if(gameboard[0][0] == 1&& gameboard[0][1] == 1 && gameboard [0][2] == 1 ){
             return 1;
         }
-        if(gameboard[0][0] == 2&& gameboard[0][2] == 2/* && gameboard [0][4] == 2 */){
-            System.out.println("Computer Wins");
+        if(gameboard[0][0] == 2&& gameboard[0][1] == 2 && gameboard [0][2] == 2 ){
             return 2;
         }
-        if(gameboard[1][0] == 1&& gameboard[1][2] == 1 && gameboard [1][4] == 1 ){
-            System.out.println("Player Wins");
+        if(gameboard[1][0] == 1&& gameboard[1][1] == 1 && gameboard [1][2] == 1 ){
             return 1;
         }
-        if(gameboard[1][0] == 2&& gameboard[1][2] == 2 /*&& gameboard [1][4] == 2*/ ){
-            System.out.println("Computer Wins");
+        if(gameboard[1][0] == 2&& gameboard[1][1] == 2 && gameboard [1][2] == 2 ){
             return 2;
         }
-        if(gameboard[2][0] == 1&& gameboard[2][2] == 1 /*&& gameboard [2][4] == 1 */){
-            System.out.println("Player Wins");
+        if(gameboard[2][0] == 1&& gameboard[2][1] == 1 && gameboard [2][2] == 1 ){
             return 1;
         }
-        if(gameboard[2][0] == 2&& gameboard[2][2] == 2/* && gameboard [2][4] == 2*/ ) {
-            System.out.println("Computer Wins");
+        if(gameboard[2][0] == 2&& gameboard[2][1] == 2 && gameboard [2][2] == 2) {
             return 2;
         }
 
         //Vertical Wins
-
         if(gameboard[0][0] == 1&& gameboard[1][0] == 1 && gameboard [2][0] == 1 ){
-            System.out.println("Player Wins");
             return 1;
         }
         if(gameboard[0][0] == 2&& gameboard[1][0] == 2 && gameboard [2][0] == 2 ){
-            System.out.println("Computer Wins");
             return 2;
         }
-
+        if(gameboard[0][1] == 1&& gameboard[1][1] == 1 && gameboard [2][1] == 1 ){
+            return 1;
+        }
+        if(gameboard[0][1] == 2&& gameboard[1][1] == 2 && gameboard [2][1] == 2 ){
+            return 2;
+        }
         if(gameboard[0][2] == 1&& gameboard[1][2] == 1 && gameboard [2][2] == 1 ){
-            System.out.println("Player Wins");
             return 1;
         }
         if(gameboard[0][2] == 2&& gameboard[1][2] == 2 && gameboard [2][2] == 2 ){
-            System.out.println("Computer Wins");
             return 2;
         }
-
-        /*if(gameboard[0][4] == 1&& gameboard[1][4] == 1 && gameboard [2][4] == 1 ){
-            System.out.println("Player Wins");
-            return 1;
-        }
-        if(gameboard[0][4] == 2&& gameboard[1][4] == 2 && gameboard [2][4] == 2 ){
-            System.out.println("Computer Wins");
-            return 2;
-        }*/
 
         //Diagonal Wins
-        if(gameboard[0][0] == 1&& gameboard[1][2] == 1 /*&& gameboard [2][4] == 1 */){
-            System.out.println("Player Wins");
+        if(gameboard[0][0] == 1&& gameboard[1][1] == 1 && gameboard [2][2] == 1 ){
             return 1;
         }
-        if(gameboard[0][0] == 2&& gameboard[1][2] == 2 && gameboard [2][4] == 2 ){
-            System.out.println("Computer Wins");
+        if(gameboard[0][0] == 2&& gameboard[1][1] == 2 && gameboard [2][2] == 2 ){
+            return 2;
+        }
+        if(gameboard[2][0] == 1&& gameboard[1][1] == 1 && gameboard [0][2] == 1){
+            return 1;
+        }
+        if(gameboard[2][0] == 2&& gameboard[1][1] == 2 && gameboard [0][2] == 2 ){
             return 2;
         }
 
-        if(gameboard[2][0] == 1&& gameboard[1][2] == 1/* && gameboard [0][4] == 1 /*){
-            System.out.println("Player Wins");
-            return 1;
-        }
-        if(gameboard[2][0] == 2&& gameboard[1][2] == 2/* && gameboard [0][4] == 2*/ ){
-            System.out.println("Computer Wins");
-            return 2;
-        }
-
-        if(gameboard[0][0] != 0 && gameboard[0][2] != 0 /*&& gameboard[0][4] != 0 */&& gameboard[1][0] !=0&&
-                gameboard[1][2] != 0 &&/* gameboard[1][4] != 0 &&*/ gameboard[2][0] != 0 && gameboard[2][2] != 0/* && gameboard[2][4] != ' '*/){
-            System.out.println("Its a tie");
+        if(Arrays.stream(gameboard).allMatch(x -> Arrays.stream(x).allMatch(y -> y != 0))){
             return 3;
         }
 

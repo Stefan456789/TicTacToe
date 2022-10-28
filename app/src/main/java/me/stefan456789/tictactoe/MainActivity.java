@@ -1,34 +1,46 @@
 package me.stefan456789.tictactoe;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Arrays;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class MainActivity extends AppCompatActivity {
 
     private TableLayout layout;
     private Game game;
+    private TextView fieldsLeft;
+    private TextView playerPlaying;
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         game = new Game(this::getLayout, this::sendToast, this::resetBoard);
         layout = findViewById(R.id.TableLayout);
+        fieldsLeft = findViewById(R.id.FieldsLeft);
+        playerPlaying = findViewById(R.id.textView);
+        playerPlaying.setText(String.valueOf(game.getPlayer()));
+        fieldsLeft.setText("9");
         Arrays.stream(tableToButtonArray(layout))
                 .forEach(row -> Arrays.stream(row)
                         .forEach(bt -> bt.setOnClickListener(view -> {
                             Button button = (Button)view;
                             if (button.getText().toString().isEmpty()){
-                                button.setText(String.valueOf(game.getPlayer()));
+                                button.setText("" + game.getPlayer());
                                 game.resume();
+                                playerPlaying.setText("Player: " + game.getPlayer());
+                                fieldsLeft.setText("" + Arrays.stream(tableToButtonArray(layout)).flatMap(Arrays::stream).filter(x -> x.getText().toString().isEmpty()).count());
                             }else{
                                 sendToast("Dieses Feld wurde bereits belegt!");
                             }
